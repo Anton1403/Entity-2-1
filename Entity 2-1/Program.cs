@@ -7,23 +7,14 @@ using System.Data.Entity;
 
 namespace Entity_2_1
 {
-    public class User
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
-    }
-
         public class UserContext : DbContext
         {
-            public UserContext() :
-                base("UserDB")
+        public UserContext() :
+            base("UserDB")
+            
             { }
-
             public DbSet<User> Users { get; set; }
         }
-    
-
     class Program
     {
         static void Main(string[] args)
@@ -33,9 +24,8 @@ namespace Entity_2_1
                 var users = db.Users;
                 foreach (User u in users)
                 {
-                    Console.WriteLine("{0}.{1} - {2}", u.Id, u.Name, u.Age);
+                    Console.WriteLine("{0}-{1} - {2}", u.Id, u.Name, u.Age);
                 }
-                Console.Read();
             }
         }
         
